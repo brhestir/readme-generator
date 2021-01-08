@@ -6,14 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brhestir/readme-generator.git"
-  },
   "author": "Brian Hestir",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/brhestir/readme-generator/issues"
-  },
-  "homepage": "https://github.com/brhestir/readme-generator#readme"
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  }
 }
