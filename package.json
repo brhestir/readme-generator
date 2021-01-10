@@ -1,14 +1,19 @@
 {
   "name": "readme-generator",
   "version": "1.0.0",
-  "description": "A cmdline-based readme generator in node.js",
+  "description": "A cmdline-based README.md generator using inquirer & node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "author": "Brian Hestir",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "chai": "^4.2.0",
+    "colors": "^1.4.0",
+    "express": "^4.17.1",
+    "inquirer": "^6.5.2",
+    "mocha": "^8.2.1",
+    "request": "^2.88.2"
   }
 }
