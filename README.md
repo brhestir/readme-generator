@@ -1,5 +1,7 @@
-# readme-generator
-A readme-generator for generating README.md files in Markdown format.
+# ![https://github.com/brhestir/readme-generator/blob/main/README.md](https://badgen.net/badge/readme/generator/orange?icon=github&scale=5)
+Parse, transform & generate README instructions with NodeJS and Markdown
+
+![https://github.com/brhestir/readme-generator/blob/main/LICENSE](https://shields.io/github/license/brhestir/readme-generator)  ![GitHub top language](https://img.shields.io/github/languages/top/brhestir/readme-generator) ![Lines of code](https://img.shields.io/tokei/lines/github.com/brhestir/readme-generator)
 
 ## Table of Contents
 - [readme-generator](#readme-generator)
@@ -29,7 +31,7 @@ node index.js
 ```
 
 ## Licence
-MIT
+![https://github.com/brhestir/readme-generator/blob/main/LICENSE](https://shields.io/github/license/brhestir/readme-generator)
 
 ## Contributing
 Contributions welcome!

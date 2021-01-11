@@ -1,95 +1,90 @@
-// TODO: Include packages needed for this application
-const fs = require('fs');
-const inquirer = require('inquirer');
+// index.js
 
 // Includes
-const generateMarkdown = require('./utils/generateMarkdown');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const colors = require('colors');
+const {generateMarkdown, capitalizedFirstChar} = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
     {
-        type: "input",
-        message: "Title: ",
         name: "title",
-        default: "[readme-generator-default-title]",
+        type: "input",
+        default: "readme-generator-default-title",
+        message: "Title: ",
     },
     {
+        name: "description",
         type: "input",
-        message: "Description: ",
-        name: "description", 
-        default: "[A readme-generator for generating README.md files in Markdown format.]",
+        default: "A readme-generator for generating README.md files in Markdown format.",
+        message: "Description: ",    
     },
     {
-        type: "input",
-        message: "Installation: ",
         name: "installation",
-        default: "[Installation instructions go here]",
+        type: "input",
+        default: "Installation instructions go here",
+        message: "Installation: ",
     },
     {
-        type: "input",
-        message: "Usage: ",
         name: "usage",
-        default: "[Usage instructions go here]",
-    },
-    {
         type: "input",
-        message: "Licence: ",
+        default: "Usage instructions go here",
+        message: "Usage: ",
+    },
+    {   
         name: "licence",
-        default: "[Selected licence goes here, prob default to MIT]",
+        type: "list",
+        message: "Licence: ",
+        choices: [ "MIT",
+                   "Apache 2.0",
+                   "Boost Software Licence 1.0",
+                   "BSD 3-Clause Licence",
+                   "GNU GPL v3",
+                   "MIT",
+                   "Mozilla Public Licence 2.0",
+        ],
+        default: "MIT",
+                
     },
     {
-        type: "input",
-        message: "Contributing: ",
         name: "contributing",
-        default: "[Contribution details go here]",
+        type: "input",
+        default: "Contribution details go here",
+        message: "Contributing: ",
     },
     {
-        type: "input",
-        message: "Tests: ",
         name: "tests",
-        default: "[Test instructions+data goes here]",
+        type: "input",
+        default: "npm test",
+        message: "Tests: ",
     },
     {
-        type: "input",
-        message: "Questions: ",
         name: "questions",
-        default: "[What is a good question to put here?]",
+        type: "input",
+        default: "Questions and / or comments are welcome and appreciated",
+        message: "Questions: ",
     }
 ];
 
+// Function which begins prompting the user with list of questions
 const promptUser = (questionArray) => {
     inquirer.prompt(questionArray).then((response) => {
-        console.log(response);
-        console.log('----------------------------------------');
-
         writeToFile('README_output.md', generateMarkdown(response));
-    }).catch((error) => {
-        if(error.isTtyError) {
-            // Prompt cannot be rendered in current env.
-            console.log('[E] Prompt cannot be rendered in current environment')
-        } else {
-            // Parse over some other set of possible errors
-            console.log(`[E] ${error}`);
-        }
-    });
-
+    })
 };
 
-const generateTOC = (tocArray) => {
-
-};
-
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         err ? console.log(err) : console.log(fileName + " written successfully.");
     });
 };
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
     promptUser(questions);
 }
 
-// Function call to initialize app
+// Initialize app
 init();
